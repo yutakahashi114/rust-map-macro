@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  rust:
+    build:
+      context: .
+    tty: true
+    volumes:
+      - .:/var/www:cached
+    environment:
+      USER: user
+      RUST_BACKTRACE: 1
+    working_dir: /var/www
