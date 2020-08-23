@@ -11,18 +11,14 @@ fn main() {
         int: 1234,
         float: 56.78,
         string: "str".to_string(),
-        time: Time {
-            seconds: 5678,
-            nanos: 1234,
-        },
         array: vec!["array1".to_string(), "array2".to_string()],
-        map: vec![
-            ("key1".to_string(), 1),
-            ("key2".to_string(), 2),
-            ("key3".to_string(), 3),
-        ]
-        .into_iter()
-        .collect(),
+        map: vec![("seconds".to_string(), 1234), ("nanos".to_string(), 5678)]
+            .into_iter()
+            .collect(),
+        time: Time {
+            seconds: 1234,
+            nanos: 5678,
+        },
     };
 
     let test_map = test.to_map();
@@ -39,14 +35,9 @@ struct Test {
     null: Option<String>,
     boolean: bool,
     int: i64,
-    float: f32,
+    float: f64,
     string: String,
-    time: Time,
     array: Vec<String>,
     map: HashMap<String, i64>,
-}
-
-#[derive(Debug, Mapper)]
-struct Test2 {
-    test: Test,
+    time: Time,
 }

@@ -15,15 +15,6 @@ pub enum FieldValue {
     Map(HashMap<String, FieldValue>),
 }
 
-impl FieldValue {
-    pub fn to_primitive<T>(self) -> Result<T>
-    where
-        T: Converter,
-    {
-        T::to_primitive(self)
-    }
-}
-
 #[derive(Clone, Debug)]
 pub struct Time {
     pub seconds: i64,
